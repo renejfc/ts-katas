@@ -6,4 +6,7 @@ const fizzbuzz = (num: number): string | number => {
   return num
 }
 
+let num: number = 0
+while(num < 100) { num++; console.log(fizzbuzz(num)) }
+
 export default fizzbuzz
