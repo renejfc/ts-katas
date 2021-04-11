@@ -16,4 +16,12 @@ describe('fizzbuzz function', () => {
     expect(fizzbuzz(10)).toBe(res)
     expect(fizzbuzz(20)).toBe(res)
   })
+
+  it("Should return FizzBuzz if it's multiple of 3 and 5", () => {
+    const res: string = 'FizzBuzz'
+
+    expect(fizzbuzz(15)).toBe(res)
+    expect(fizzbuzz(30)).toBe(res)
+    expect(fizzbuzz(45)).toBe(res)
+  })
 })
