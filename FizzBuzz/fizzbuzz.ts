@@ -1,5 +1,9 @@
-const fizzBuzz = (num: number): string | number => {
-  return 'test'
+const fizzbuzz = (num: number): string | number => {
+  if(num % 3 === 0 && num % 5 === 0) return 'FizzBuzz'
+  if(num % 3 === 0) return 'Fizz'
+  if(num % 5 === 0) return 'Buzz'
+
+  return num
 }
 
-export default fizzBuzz
+export default fizzbuzz
