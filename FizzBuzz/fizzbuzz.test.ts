@@ -1,6 +1,13 @@
 import fizzbuzz from './fizzbuzz';
 
 describe('fizzbuzz function', () => {
+  it("Should return the same number if any of the conditions doesn't apply", () => {
+
+    expect(fizzbuzz(1)).toBe(1)
+    expect(fizzbuzz(2)).toBe(2)
+    expect(fizzbuzz(4)).toBe(4)
+  })
+
   it("Should return Fizz if it's multiple of 3", () => {
     const res = 'Fizz'
 

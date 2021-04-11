@@ -1,4 +1,4 @@
-const fizzBuzz = (num: number): string => {
+const fizzBuzz = (num: number): string | number => {
   return 'test'
 }
 
