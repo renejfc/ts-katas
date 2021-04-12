@@ -35,8 +35,8 @@ Also sometimes I do stuff on:
 ## 👨‍💻 Katas
 
 - **[FizzBuzz](FizzBuzz)** ✅
+- **[RPG-Combat](RPG-Combat)** 🐱‍💻 ***WIP***
 - Not yet.
-- I'm bussy :(
 
 ----
 
