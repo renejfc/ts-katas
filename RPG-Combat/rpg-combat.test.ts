@@ -1,27 +1,27 @@
 import { Character } from "./rpg-combat";
 
 describe('Character created', () => {
-  it('Should have 1000 HP', () => {
+  it('Should start with 1000 HP', () => {
     const char: Character = new Character()
 
     expect(char.healthPoints).toBe(1000)
   })
 
-  it('Should be level 1', () => {
+  it('Should start with level 1', () => {
     const char: Character = new Character()
 
     expect(char.level).toBe(1)
   })
 
-  it('Should be alive', () => {
+  it('Should start alive', () => {
     const char: Character = new Character()
 
     expect(char.isAlive).toBe(true)
   })
 })
 
-describe('Characters can deal damage to anothers Characters', () => {
-  it('Dealed damage should be subtracted from the victim health', () => {
+describe('Attack method', () => {
+  it('Should subtract dealed damage from the target health', () => {
     const viper: Character = new Character()
     const breach: Character = new Character()
 
@@ -30,7 +30,7 @@ describe('Characters can deal damage to anothers Characters', () => {
     expect(breach.healthPoints).toBe(700)
   })
 
-  it('When damage exceeds the victim current Health it becomes 0 and the victim dies', () => {
+  it('Current target health should become 0 and must die when damage exceeds its amount', () => {
     const viper: Character = new Character()
     const breach: Character = new Character()
 
@@ -41,8 +41,8 @@ describe('Characters can deal damage to anothers Characters', () => {
   })
 })
 
-describe('Characters can heal anothers Characters', () => {
-  it('Character can heal another', () => {
+describe('Heal method', () => {
+  it('Should heal the target', () => {
     const skye: Character = new Character()
     const sage: Character = new Character({ hp: 500 })
 
@@ -51,9 +51,9 @@ describe('Characters can heal anothers Characters', () => {
     expect(sage.healthPoints).toBe(800)
   })
 
-  it('Should not heal dead characters', () => {
+  it('Should not heal dead targets', () => {
     const skye: Character = new Character()
-    const sage: Character = new Character({ hp: 0})
+    const sage: Character = new Character({ hp: 0, isAlive: false})
 
     skye.heal(300, sage)
 

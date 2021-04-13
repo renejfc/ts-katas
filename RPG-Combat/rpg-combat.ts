@@ -19,14 +19,12 @@ export class Character implements ICharacter {
     this.isAlive = isAlive || (this.healthPoints > 0)
   }
 
-  attack(amount: number, victim: Character): void {
-    const hp: any = victim.healthPoints
-    
-    if(hp < amount ) {
-      victim.isAlive = false
-      victim.healthPoints = 0
+  attack(amount: number, target: Character): void {
+    if(target.healthPoints < amount ) {
+      target.isAlive = false
+      target.healthPoints = 0
     } else {
-      victim.healthPoints -= amount
+      target.healthPoints -= amount
     }
   }
 
