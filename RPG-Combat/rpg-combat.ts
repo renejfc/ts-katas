@@ -6,9 +6,16 @@ interface ICharacter {
 }
 
 export class Character implements ICharacter {
-  healthPoints: number = 1000
-  level: number = 1
-  isAlive: boolean = true
+  healthPoints: number
+  level: number
+  isAlive: boolean
+
+  constructor(healthPoints?: number, level?: number, isAlive?: boolean) {
+    this.healthPoints = healthPoints || 1000
+    this.level = level || 1
+    this.isAlive = isAlive || true
+    
+  }
 
   attack(amount: number, victim: Character): void {
     const hp: any = victim.healthPoints
