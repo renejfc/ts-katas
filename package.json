@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test:w": "jest --watch",
     "repl": "ts-node"
   },
   "author": "",

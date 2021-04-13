@@ -11,20 +11,28 @@ This is a fun kata that has the programmer building simple combat rules, as for 
 
 ## 1️⃣ First iteration
 
-1. All Characters, when created, have:
-    - Health, starting at 1000
-    - Level, starting at 1
-    - May be Alive or Dead, starting Alive (Alive may be a true/false)
+- ***All Characters, when created, have:***
+  - Health, starting at 1000
+  - Level, starting at 1
+  - May be Alive or Dead, starting Alive (Alive may be a true/false)
 
-2. Characters can Deal Damage to Characters.
-    - Damage is subtracted from Health
-    - When damage received exceeds current Health, Health becomes 0 and the character dies
+- ***Characters can Deal Damage to Characters.***
+  - Damage is subtracted from Health
+  - When damage received exceeds current Health, Health becomes 0 and the character dies
 
-3. A Character can Heal a Character.
+- ***A Character can Heal a Character.***
 
-    - Dead characters cannot be healed
-    - Healing cannot raise health above 1000
+  - Dead characters cannot be healed
+  - Healing cannot raise health above 1000
+
+## 2️⃣ Second iteration
+
+- ***A Character cannot Deal Damage to itself.***
+- ***A Character can only Heal itself.***
+- ***When dealing damage:***
+  - If the target is 5 or more Levels above the attacker, Damage is reduced by 50%
+  - If the target is 5 or more Levels below the attacker, Damage is increased by 50%
 
 ---
 
-###### From [CodingDojo](https://codingdojo.org/kata/FizzBuzz/).
+###### From [ardalis](https://github.com/ardalis/kata-catalog).
