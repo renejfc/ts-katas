@@ -26,15 +26,46 @@ describe('Characters can deal damage to anothers Characters', () => {
     const breach: Character = new Character()
 
     viper.attack(300, breach)
+
     expect(breach.healthPoints).toBe(700)
   })
 
   it('When damage exceeds the victim current Health it becomes 0 and the victim dies', () => {
-    const cypher: Character = new Character()
-    const sova: Character = new Character()
+    const viper: Character = new Character()
+    const breach: Character = new Character()
 
-    cypher.attack(1100, sova)
-    expect(sova.healthPoints).toBe(0)
-    expect(sova.isAlive).toBe(false)
+    viper.attack(1100, breach)
+
+    expect(breach.healthPoints).toBe(0)
+    expect(breach.isAlive).toBe(false)
+  })
+})
+
+describe('Characters can heal anothers Characters', () => {
+  it('Character can heal another', () => {
+    const skye: Character = new Character()
+    const sage: Character = new Character({ hp: 500 })
+
+    skye.heal(300, sage)
+
+    expect(sage.healthPoints).toBe(800)
+  })
+
+  it('Should not heal dead characters', () => {
+    const skye: Character = new Character()
+    const sage: Character = new Character({ hp: 0})
+
+    skye.heal(300, sage)
+
+    expect(sage.healthPoints).toBe(0)
+  })
+
+  it('Should not raise health above 1000', () => {
+    const skye: Character = new Character()
+    const sage: Character = new Character()
+
+    skye.heal(150, sage)
+
+    expect(sage.healthPoints).toBe(1000)
   })
 })
