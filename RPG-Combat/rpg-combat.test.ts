@@ -57,6 +57,24 @@ describe('Attack method', () => {
     expect(breach.healthPoints).toBe(0)
     expect(breach.isAlive).toBe(false)
   })
+
+  it('Should reduce 50% of the damage when the target is > 5 levels above the attacker', () => {
+    const viper: Character = new Character({ level: 7 })
+    const breach: Character = new Character()
+    
+    breach.attack(500, viper)
+
+    expect(viper.healthPoints).toBe(750)
+  })
+
+  it('Should increase 50% of the damage when the target is < 5 levels below the attacker', () => {
+    const viper: Character = new Character({ level: 7 })
+    const breach: Character = new Character()
+    
+    viper.attack(500, breach)
+
+    expect(breach.healthPoints).toBe(250)
+  })
 })
 
 describe('Heal method', () => {
