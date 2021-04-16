@@ -1,5 +1,15 @@
 import { Character } from "./rpg-combat";
 
+test('Instance id should increment in every new instantiation', () => {
+  const sova: Character = new Character
+  const jett: Character = new Character
+  const astra: Character = new Character
+
+  expect(sova.id).toBe(1)
+  expect(jett.id).toBe(2)
+  expect(astra.id).toBe(3)
+})
+
 describe('Character created', () => {
   it('Should start with 1000 HP', () => {
     const char: Character = new Character()
@@ -28,6 +38,14 @@ describe('Attack method', () => {
     viper.attack(300, breach)
 
     expect(breach.healthPoints).toBe(700)
+  })
+
+  it('Should not deal damage to itself', () => {
+    const viper: Character = new Character()
+
+    viper.attack(300, viper)
+
+    expect(viper.healthPoints).toBe(1000)
   })
 
   it('Current target health should become 0 and must die when damage exceeds its amount', () => {
