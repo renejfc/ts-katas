@@ -61,12 +61,22 @@ describe('Attack method', () => {
 
 describe('Heal method', () => {
   it('Should heal the target', () => {
-    const skye: Character = new Character()
-    const sage: Character = new Character({ hp: 500 })
+    const skye: Character = new Character({ hp: 500 })
+
+    skye.heal(300, skye)
+
+    expect(skye.healthPoints).toBe(800)
+  })
+
+  it('Should not heal others but itself', () => {
+    const sage: Character = new Character({ hp: 700 })
+    const skye: Character = new Character({ hp: 700 })
 
     skye.heal(300, sage)
+    skye.heal(300, skye)
 
-    expect(sage.healthPoints).toBe(800)
+    expect(sage.healthPoints).toBe(700)
+    expect(skye.healthPoints).toBe(1000)
   })
 
   it('Should not heal dead targets', () => {
