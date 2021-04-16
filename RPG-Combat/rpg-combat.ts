@@ -17,7 +17,7 @@ export class Character implements ICharacter {
   level: number
   isAlive: boolean
 
-  constructor({hp, level, isAlive}: {hp?: number, level?: number, isAlive?: boolean} = {}) {
+  constructor({hp, level, powerAttack, isAlive}: {hp?: number, level?: number, powerAttack?: number, isAlive?: boolean} = {}) {
     this.id = ++Character.instanceCount
     this.healthPoints = (typeof hp !== 'undefined') ? hp : 1000
     this.level = level || 1
@@ -25,6 +25,12 @@ export class Character implements ICharacter {
   }
 
   attack(amount: number, target: Character): void {
+    if(this.level + 4 < target.level) {
+      amount = amount / 2
+    } else if(this.level > target.level + 4) {
+      amount = amount * 1.5
+    }
+
     if (this.id != target.id) {
       if(target.healthPoints < amount) {
         target.isAlive = false
