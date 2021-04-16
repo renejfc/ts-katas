@@ -4,8 +4,8 @@ interface ICharacter {
   maxHealthPoints: number
   level: number
   isAlive: boolean
-  attack(amount: number, victim: Character): void
-  heal(amount: number, victim: Character): void
+  attack(amount: number, target: Character): void
+  heal(amount: number, target: Character): void
 }
 
 export class Character implements ICharacter {
@@ -35,9 +35,9 @@ export class Character implements ICharacter {
     }
   }
 
-  heal(amount: number, victim: Character): void {
-    if(victim.isAlive) {
-      victim.healthPoints = (amount + victim.healthPoints > victim.maxHealthPoints) ? (victim.maxHealthPoints) : (victim.healthPoints + amount)
+  heal(amount: number, target: Character): void {
+    if(target.isAlive && target.id === this.id) {
+      target.healthPoints = (amount + target.healthPoints > target.maxHealthPoints) ? (target.maxHealthPoints) : (target.healthPoints + amount)
     }
   }
 }
