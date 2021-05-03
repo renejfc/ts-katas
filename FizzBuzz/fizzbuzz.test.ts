@@ -1,34 +1,45 @@
-import fizzbuzz from './fizzbuzz';
+import { FizzBuzz } from './fizzbuzz';
 
-describe('fizzbuzz function', () => {
+const fbz = new FizzBuzz()
+
+describe('fizzbuzz rules', () => {
   it("Should return the same number if any of the conditions doesn't apply", () => {
 
-    expect(fizzbuzz(1)).toBe(1)
-    expect(fizzbuzz(2)).toBe(2)
-    expect(fizzbuzz(4)).toBe(4)
+    expect(fbz.checkRules(1)).toBe(1)
+    expect(fbz.checkRules(2)).toBe(2)
+    expect(fbz.checkRules(4)).toBe(4)
   })
 
   it("Should return Fizz if it's multiple of 3", () => {
     const res = 'Fizz'
 
-    expect(fizzbuzz(3)).toBe(res)
-    expect(fizzbuzz(6)).toBe(res)
-    expect(fizzbuzz(12)).toBe(res)
+    expect(fbz.checkRules(3)).toBe(res)
+    expect(fbz.checkRules(6)).toBe(res)
+    expect(fbz.checkRules(12)).toBe(res)
   })
 
   it("Should return Buzz if it's multiple of 5", () => {
     const res: string = 'Buzz'
 
-    expect(fizzbuzz(5)).toBe(res)
-    expect(fizzbuzz(10)).toBe(res)
-    expect(fizzbuzz(20)).toBe(res)
+    expect(fbz.checkRules(5)).toBe(res)
+    expect(fbz.checkRules(10)).toBe(res)
+    expect(fbz.checkRules(20)).toBe(res)
   })
 
   it("Should return FizzBuzz if it's multiple of 3 and 5", () => {
     const res: string = 'FizzBuzz'
 
-    expect(fizzbuzz(15)).toBe(res)
-    expect(fizzbuzz(30)).toBe(res)
-    expect(fizzbuzz(45)).toBe(res)
+    expect(fbz.checkRules(15)).toBe(res)
+    expect(fbz.checkRules(30)).toBe(res)
+    expect(fbz.checkRules(45)).toBe(res)
+  })
+})
+
+describe('print method', () => {
+  it("Should return numbers from 0 to 100", () => {
+    const nums: number[] = fbz.printFrom1To100()
+
+    expect(nums).toBeInstanceOf(Array)
+    expect(nums).toHaveLength(99)
   })
 })
