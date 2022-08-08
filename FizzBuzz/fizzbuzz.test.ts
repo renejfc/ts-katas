@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest'
 import { FizzBuzz } from './fizzbuzz';
 
 const fbz = new FizzBuzz()

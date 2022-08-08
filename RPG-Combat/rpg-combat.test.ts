@@ -1,3 +1,4 @@
+import { describe, it, expect, test } from 'vitest'
 import { Character } from "./rpg-combat";
 
 test('Instance id should increment in every new instantiation', () => {
